@@ -1,0 +1,46 @@
+﻿@using CMSGTechnical.Code
+@using CMSGTechnical.Components.Shared
+@using CMSGTechnical.Domain.Models
+@using CMSGTechnical.Mediator.Basket
+@using MediatR
+@inherits LayoutComponentBase
+
+<div class="page">
+    <CascadingValue TValue="BasketService" Value="@BasketService">
+        <div class="sidebar">
+            <NavMenu/>
+        </div>
+
+        <main>
+            <div class="top-row px-4">
+                <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+            </div>
+
+            <article class="content px-4">
+                @Body
+            </article>
+        </main>
+    </CascadingValue>
+</div>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+
+@code
+{
+    private BasketService BasketService { get; set; }
+
+    [Inject] private IMediator Mediator { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var basket = await Mediator.Send(new GetBasket(1));
+        BasketService = new BasketService(basket);
+    }
+
+
+}

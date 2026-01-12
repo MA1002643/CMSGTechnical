@@ -1,0 +1,48 @@
+﻿@using CMSGTechnical.Domain.Models
+@using CMSGTechnical.Mediator.Dtos
+
+<div class="mt-2 mb-2 d-flex justify-content-between">
+    <div> 
+        <div>
+            <strong>@Item.Name (<strong>£@Item.Price</strong>)</strong>
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(Item.Description))
+        {
+            <div>
+                @Item.Description
+            </div>
+        }
+    </div>
+    <div>
+        @if (OnAdd.HasDelegate)
+        {
+            <button class="btn btn-primary btn-round" @onclick="Add">+</button>
+        }
+        @if (OnRemove.HasDelegate)
+        {
+            <button class="btn btn-primary btn-round" @onclick="Remove">-</button>
+        }
+    </div>
+</div>
+
+
+@code {
+
+    [Parameter] public MenuItemDto Item { get; set; } = new();
+    
+
+    [Parameter]
+    public EventCallback<MenuItemDto> OnAdd { get; set; }
+
+    [Parameter]
+    public EventCallback<MenuItemDto> OnRemove { get; set; }
+
+
+    private async Task Remove() => await OnRemove.InvokeAsync(Item);
+    private async Task Add() => await OnAdd.InvokeAsync(Item);
+
+
+
+
+}

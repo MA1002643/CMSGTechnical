@@ -1,0 +1,41 @@
+﻿@page "/"
+@using CMSGTechnical.Code
+@using CMSGTechnical.Domain.Models
+@using CMSGTechnical.Mediator.Menu
+@using MediatR
+@using CMSGTechnical.Components.Shared
+@using CMSGTechnical.Mediator.Dtos
+
+<PageTitle>Home</PageTitle>
+
+
+
+@for (var i = 0; i < MenuItems.Count(); i++) {
+    var item = MenuItems[i];
+    <MenuItemDisplay Item="@item" OnAdd="() => AddItem(i)" />
+}
+
+
+
+@code
+{
+    [Inject] private IMediator Mediator { get; set; } = default!;
+
+
+    private MenuItemDto[] MenuItems { get; set; } = Array.Empty<MenuItemDto>();
+    [CascadingParameter]
+    private BasketService Basket { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        MenuItems = (await Mediator.Send(new GetMenuItems())).ToArray();
+    }
+
+    private void AddItem(int id)
+    {
+        var menuItem = MenuItems.First(i=>i.Id==id);
+        Basket.Add(menuItem);
+    }
+    
+}

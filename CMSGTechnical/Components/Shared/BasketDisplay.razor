@@ -1,0 +1,59 @@
+﻿@using CMSGTechnical.Code
+@using CMSGTechnical.Domain.Models
+@using CMSGTechnical.Mediator.Basket
+@using CMSGTechnical.Mediator.Dtos
+@using MediatR
+
+<div class="basket">
+    
+    @foreach (var item in Basket.MenuItems)
+    {
+
+        <div>
+            <div>
+                @item.Name - @item.Price
+            </div>
+            
+            <div>
+                <button class="btn btn-primary btn-round" @onclick="() => Basket.MenuItems.Add(item)">+</button>
+                <button class="btn btn-primary btn-round" @onclick="() => Basket.MenuItems.Remove(item)">-</button>
+            </div>
+        </div>
+    }
+    
+    <div class="mt-3">
+        Total: @Basket.MenuItems.Sum(i=>i.Price)
+    </div>
+</div>
+
+
+@code {
+
+
+
+    [Inject] private IMediator Mediator { get; set; } = default!;
+
+    private BasketDto Basket { get; set; } = new();
+    [CascadingParameter]
+    private BasketService BasketService { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Basket = BasketService.Basket;
+        BasketService.OnChange += (sender, args) => StateHasChanged();
+    }
+
+
+    public void AddItem(MenuItemDto item)
+    {
+        Basket.MenuItems.Add(item);
+        StateHasChanged();
+    }
+
+    public void Remove(MenuItemDto item)
+    {
+        Basket.MenuItems.Remove(item);
+    }
+
+
+}
