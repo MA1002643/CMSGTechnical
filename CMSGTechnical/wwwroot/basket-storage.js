@@ -37,15 +37,8 @@ window.cmsgBasketStorage = (() => {
       try {
         const json = JSON.stringify(basket);
         localStorage.setItem(STORAGE_KEY, json);
-
-        // Immediately notify all subscribers in this tab
-        subscribers.forEach((ref) => {
-          if (ref) {
-            ref.invokeMethodAsync("OnStorageChanged", json).catch((err) => {
-              console.warn("Failed to invoke OnStorageChanged in write:", err);
-            });
-          }
-        });
+        // Do NOT notify subscribers here - let PersistAndNotifyAsync handle it
+        // Only storage events from other tabs should trigger OnStorageChanged
       } catch (err) {
         console.error("Write to storage failed:", err);
       }

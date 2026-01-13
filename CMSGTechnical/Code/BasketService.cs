@@ -100,13 +100,9 @@ namespace CMSGTechnical.Code
                 if (deserialized is null)
                     return;
 
-                // Only update if the data actually changed (cross-tab sync)
-                var currentJson = JsonSerializer.Serialize(Basket);
-                if (currentJson != json)
-                {
-                    Basket = deserialized;
-                    NotifyChanged();
-                }
+                // Only called from cross-tab storage events, safe to replace basket
+                Basket = deserialized;
+                NotifyChanged();
             }
             catch
             {
