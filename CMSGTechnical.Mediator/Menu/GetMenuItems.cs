@@ -25,7 +25,11 @@ namespace CMSGTechnical.Mediator.Menu
 
         public async Task<IEnumerable<MenuItemDto>> Handle(GetMenuItems request, CancellationToken cancellationToken)
         {
-            var q = MenuItems.GetAll();
+            var q = MenuItems
+                .GetAll()
+                .OrderBy(i => i.Price)
+                .ThenBy(i => i.Name);
+
             var r = await q.ToListAsync(cancellationToken);
             return r.ToDto();
         }

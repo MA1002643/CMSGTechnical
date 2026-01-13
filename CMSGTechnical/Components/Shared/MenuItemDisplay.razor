@@ -1,27 +1,33 @@
-﻿@using CMSGTechnical.Domain.Models
-@using CMSGTechnical.Mediator.Dtos
+﻿@using CMSGTechnical.Mediator.Dtos
 
-<div class="mt-2 mb-2 d-flex justify-content-between">
-    <div> 
+<div class="menu-item">
+    <div class="menu-item__header">
         <div>
-            <strong>@Item.Name (<strong>£@Item.Price</strong>)</strong>
+            <div class="menu-item__name">@Item.Name</div>
+            @if (!string.IsNullOrWhiteSpace(Item.Category))
+            {
+                <div style="color: #666; font-size: 0.85rem;">@Item.Category</div>
+            }
         </div>
-
-        @if (!string.IsNullOrWhiteSpace(Item.Description))
-        {
-            <div>
-                @Item.Description
-            </div>
-        }
+        <div class="menu-item__price">£@Item.Price.ToString("0.00")</div>
     </div>
-    <div>
+
+    @if (!string.IsNullOrWhiteSpace(Item.Description))
+    {
+        <div class="menu-item__desc">@Item.Description</div>
+    }
+
+    <div class="menu-item__actions">
         @if (OnAdd.HasDelegate)
         {
-            <button class="btn btn-primary btn-round" @onclick="Add">+</button>
+            <button class="btn btn-primary menu-item__add-btn" @onclick="Add" title="Add to basket">
+                <span class="add-btn-icon">+</span>
+                <span class="add-btn-text">Add to Basket</span>
+            </button>
         }
         @if (OnRemove.HasDelegate)
         {
-            <button class="btn btn-primary btn-round" @onclick="Remove">-</button>
+            <button class="btn btn-danger btn-round" @onclick="Remove" title="Remove from basket">-</button>
         }
     </div>
 </div>
@@ -31,7 +37,6 @@
 
     [Parameter] public MenuItemDto Item { get; set; } = new();
     
-
     [Parameter]
     public EventCallback<MenuItemDto> OnAdd { get; set; }
 
@@ -41,8 +46,4 @@
 
     private async Task Remove() => await OnRemove.InvokeAsync(Item);
     private async Task Add() => await OnAdd.InvokeAsync(Item);
-
-
-
-
 }
