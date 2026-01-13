@@ -2,7 +2,13 @@
 @using CMSGTechnical.Mediator.Dtos
 
 <div class="basket">
-    <h4 class="basket__title">Your Basket</h4>
+    <h4 class="basket__title">
+        Your Basket
+        @if (LastUpdated != default)
+        {
+            <span class="basket__updated" title="Last updated">✓</span>
+        }
+    </h4>
 
     @if (!GroupedItems.Any())
     {
@@ -18,9 +24,9 @@
                     <div class="basket-line__meta">@entry.Item.Category • £@entry.Item.Price.ToString("0.00") each</div>
                 </div>
                 <div class="basket-line__controls">
-                    <button class="btn btn-light btn-round" @onclick="() => Add(entry.Item)">+</button>
+                    <button class="btn btn-light btn-round" @onclick="() => Add(entry.Item)" title="Add item">+</button>
                     <span class="basket-line__qty">@entry.Quantity</span>
-                    <button class="btn btn-light btn-round" @onclick="() => Remove(entry.Item)">-</button>
+                    <button class="btn btn-light btn-round" @onclick="() => Remove(entry.Item)" title="Remove item">-</button>
                     <span class="basket-line__total">£@entry.LineTotal.ToString("0.00")</span>
                 </div>
             </div>
@@ -28,6 +34,10 @@
     }
 
     <div class="basket-totals">
+        <div class="basket-totals__row">
+            <span>Subtotal</span>
+            <strong>£@BasketService.Subtotal.ToString("0.00")</strong>
+        </div>
         <div class="basket-totals__row">
             <span>Delivery fee</span>
             <strong>£@BasketService.Delivery.ToString("0.00")</strong>
@@ -44,13 +54,19 @@
     [CascadingParameter]
     private BasketService BasketService { get; set; }
 
+    private DateTime LastUpdated { get; set; }
+
     private IEnumerable<BasketLine> GroupedItems => BasketService.Basket.MenuItems
         .GroupBy(i => i.Id)
         .Select(g => new BasketLine(g.Key, g.First(), g.Count(), g.Sum(i => i.Price)));
 
     protected override void OnInitialized()
     {
-        BasketService.OnChange += (_, _) => InvokeAsync(StateHasChanged);
+        BasketService.OnChange += (_, _) => 
+        {
+            LastUpdated = DateTime.UtcNow;
+            InvokeAsync(StateHasChanged);
+        };
     }
 
     private Task Add(MenuItemDto item) => BasketService.Add(item);

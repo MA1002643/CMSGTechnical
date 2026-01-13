@@ -3,12 +3,22 @@ window.cmsgBasketStorage = (() => {
   const STORAGE_KEY = "cmsg:basket";
   let subscribers = [];
 
-  // Handle storage events from other tabs
+  // Handle storage events from other tabs/windows
   window.addEventListener("storage", (e) => {
     if (e.key === STORAGE_KEY && e.newValue) {
-      subscribers.forEach((ref) => {
-        ref.invokeMethodAsync("OnStorageChanged", e.newValue);
-      });
+      try {
+        subscribers.forEach((ref) => {
+          if (ref) {
+            ref
+              .invokeMethodAsync("OnStorageChanged", e.newValue)
+              .catch((err) => {
+                console.warn("Failed to invoke OnStorageChanged:", err);
+              });
+          }
+        });
+      } catch (err) {
+        console.error("Storage event handler error:", err);
+      }
     }
   });
 
@@ -24,13 +34,21 @@ window.cmsgBasketStorage = (() => {
     },
 
     write(basket) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(basket));
-      // Notify other subscribers in this tab
-      subscribers.forEach((ref) => {
-        if (ref) {
-          ref.invokeMethodAsync("OnStorageChanged", JSON.stringify(basket));
-        }
-      });
+      try {
+        const json = JSON.stringify(basket);
+        localStorage.setItem(STORAGE_KEY, json);
+
+        // Immediately notify all subscribers in this tab
+        subscribers.forEach((ref) => {
+          if (ref) {
+            ref.invokeMethodAsync("OnStorageChanged", json).catch((err) => {
+              console.warn("Failed to invoke OnStorageChanged in write:", err);
+            });
+          }
+        });
+      } catch (err) {
+        console.error("Write to storage failed:", err);
+      }
     },
 
     subscribe(dotnetRef) {
