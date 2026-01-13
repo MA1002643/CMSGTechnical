@@ -69,6 +69,7 @@ internal static class SeedDataHelper
                 Order = 0,
                 Name = "Vegetable Stir Fry",
                 Category = "Main",
+                Description = "Fresh mixed vegetables stir-fried in a savory sauce with garlic and ginger.",
                 Price = 11.99m
             },
             new

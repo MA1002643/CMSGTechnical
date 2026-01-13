@@ -20,7 +20,10 @@
     <div class="menu-item__actions">
         @if (OnAdd.HasDelegate)
         {
-            <button class="btn btn-primary btn-round" @onclick="Add" title="Add to basket">+</button>
+            <button class="btn btn-primary menu-item__add-btn" @onclick="Add" title="Add to basket">
+                <span class="add-btn-icon">+</span>
+                <span class="add-btn-text">Add to Basket</span>
+            </button>
         }
         @if (OnRemove.HasDelegate)
         {
