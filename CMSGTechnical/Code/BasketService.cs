@@ -94,12 +94,24 @@ namespace CMSGTechnical.Code
             if (string.IsNullOrWhiteSpace(json))
                 return;
 
-            var deserialized = JsonSerializer.Deserialize<BasketDto>(json);
-            if (deserialized is null)
-                return;
+            try
+            {
+                var deserialized = JsonSerializer.Deserialize<BasketDto>(json);
+                if (deserialized is null)
+                    return;
 
-            Basket = deserialized;
-            NotifyChanged();
+                // Only update if the data actually changed (cross-tab sync)
+                var currentJson = JsonSerializer.Serialize(Basket);
+                if (currentJson != json)
+                {
+                    Basket = deserialized;
+                    NotifyChanged();
+                }
+            }
+            catch
+            {
+                // Silently fail if deserialization fails
+            }
             await Task.CompletedTask;
         }
 
