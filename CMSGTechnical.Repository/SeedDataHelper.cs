@@ -29,7 +29,8 @@ internal static class SeedDataHelper
         builder.Entity<MenuItem>().HasData(
             new
             {
-                Id = id++, Order = 0,
+                Id = id++,
+                Order = 0,
                 Name = "Margherita Pizza",
                 Category = "Main",
                 Description = "Classic pizza with fresh tomatoes, mozzarella cheese, and basil.",
@@ -37,7 +38,8 @@ internal static class SeedDataHelper
             },
             new
             {
-                Id = id++, Order = 0,
+                Id = id++,
+                Order = 0,
                 Name = "Caesar Salad",
                 Category = "Starter",
                 Description = "Crisp romaine lettuce with Caesar dressing, croutons, and parmesan cheese.",
@@ -45,7 +47,8 @@ internal static class SeedDataHelper
             },
             new
             {
-                Id = id++, Order = 0,
+                Id = id++,
+                Order = 0,
                 Name = "Grilled Salmon",
                 Category = "Main",
                 Description = "Grilled salmon fillet served with a side of roasted vegetables.",
@@ -53,7 +56,8 @@ internal static class SeedDataHelper
             },
             new
             {
-                Id = id++, Order = 0,
+                Id = id++,
+                Order = 0,
                 Name = "Spaghetti Carbonara",
                 Category = "Main",
                 Description = "Pasta in a creamy sauce with pancetta, parmesan cheese, and black pepper.",
@@ -61,14 +65,16 @@ internal static class SeedDataHelper
             },
             new
             {
-                Id = id++, Order = 0,
+                Id = id++,
+                Order = 0,
                 Name = "Vegetable Stir Fry",
                 Category = "Main",
                 Price = 11.99m
             },
             new
             {
-                Id = id++, Order = 0,
+                Id = id++,
+                Order = 0,
                 Name = "Chicken Parmesan",
                 Category = "Main",
                 Description =
@@ -77,7 +83,8 @@ internal static class SeedDataHelper
             },
             new
             {
-                Id = id++, Order = 0,
+                Id = id++,
+                Order = 0,
                 Name = "Beef Tacos",
                 Category = "Main",
                 Description = "Three soft tacos filled with seasoned beef, lettuce, cheese, and salsa.",
@@ -85,7 +92,8 @@ internal static class SeedDataHelper
             },
             new
             {
-                Id = id++, Order = 0,
+                Id = id++,
+                Order = 0,
                 Name = "Clam Chowder",
                 Category = "Starter",
                 Description = "Creamy chowder with clams, potatoes, and celery.",
@@ -93,7 +101,8 @@ internal static class SeedDataHelper
             },
             new
             {
-                Id = id++, Order = 0,
+                Id = id++,
+                Order = 0,
                 Name = "Veggie Burger",
                 Category = "Main",
                 Description = "Plant-based burger patty with lettuce, tomato, and onion on a whole wheat bun.",
@@ -101,7 +110,8 @@ internal static class SeedDataHelper
             },
             new
             {
-                Id = id++, Order = 0,
+                Id = id++,
+                Order = 0,
                 Name = "Chocolate Cake",
                 Category = "Dessert",
                 Description = "Rich chocolate sponge layered with ganache and cream.",

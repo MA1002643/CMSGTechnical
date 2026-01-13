@@ -1,5 +1,4 @@
-﻿using CMSGTechnical.Domain.Models;
-using MediatR;
+﻿using CMSGTechnical.Mediator.Dtos;
 using MediatR;
 using Microsoft.JSInterop;
 using System.Text.Json;
@@ -21,6 +20,7 @@ namespace CMSGTechnical.Code
         private readonly IJSRuntime _jsRuntime;
         private DotNetObjectReference<BasketService>? _dotNetRef;
         private bool _initialized;
+        private bool _jsInitialized;
 
         public event EventHandler<BasketChangedEventArgs>? OnChange;
 
@@ -42,18 +42,34 @@ namespace CMSGTechnical.Code
                 return;
 
             _initialized = true;
-            await LoadFromStorageAsync();
 
             if (!Basket.MenuItems.Any())
             {
                 Basket = await _mediator.Send(new Mediator.Basket.GetBasket(1)) ?? new BasketDto();
-                await PersistAsync();
             }
 
-            _dotNetRef = DotNetObjectReference.Create(this);
-            await _jsRuntime.InvokeVoidAsync("cmsgBasketStorage.subscribe", _dotNetRef);
-
             NotifyChanged();
+        }
+
+        public async Task InitializeJsAsync()
+        {
+            if (_jsInitialized)
+                return;
+
+            _jsInitialized = true;
+
+            try
+            {
+                await LoadFromStorageAsync();
+                NotifyChanged();
+
+                _dotNetRef = DotNetObjectReference.Create(this);
+                await _jsRuntime.InvokeVoidAsync("cmsgBasketStorage.subscribe", _dotNetRef);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"JS Interop error: {ex.Message}");
+            }
         }
 
         public async Task Add(MenuItemDto item)
@@ -100,15 +116,29 @@ namespace CMSGTechnical.Code
 
         private async Task PersistAsync()
         {
-            await _jsRuntime.InvokeVoidAsync("cmsgBasketStorage.write", Basket);
+            try
+            {
+                await _jsRuntime.InvokeVoidAsync("cmsgBasketStorage.write", Basket);
+            }
+            catch
+            {
+                // Silently fail if JS interop not ready
+            }
         }
 
         private async Task LoadFromStorageAsync()
         {
-            var stored = await _jsRuntime.InvokeAsync<BasketDto?>("cmsgBasketStorage.read");
-            if (stored != null)
+            try
             {
-                Basket = stored;
+                var stored = await _jsRuntime.InvokeAsync<BasketDto?>("cmsgBasketStorage.read");
+                if (stored != null)
+                {
+                    Basket = stored;
+                }
+            }
+            catch
+            {
+                // Silently fail if JS interop not ready
             }
         }
 
@@ -116,7 +146,11 @@ namespace CMSGTechnical.Code
         {
             if (_dotNetRef != null)
             {
-                await _jsRuntime.InvokeVoidAsync("cmsgBasketStorage.unsubscribe");
+                try
+                {
+                    await _jsRuntime.InvokeVoidAsync("cmsgBasketStorage.unsubscribe");
+                }
+                catch { }
                 _dotNetRef.Dispose();
             }
         }
