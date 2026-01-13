@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 0 1rem;
+  padding: 0 1rem 3rem 1rem;
 }
 
 .category-section {
@@ -34,7 +34,7 @@
 
   .menu-container {
     gap: 1.5rem;
-    padding: 0 0.5rem;
+    padding: 0 0.5rem 2.5rem 0.5rem;
   }
 }
 
