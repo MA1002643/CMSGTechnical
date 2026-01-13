@@ -1,4 +1,5 @@
 using CMSGTechnical.Components;
+using CMSGTechnical.Code;
 using CMSGTechnical.Domain.Interfaces;
 using CMSGTechnical.Domain.Models;
 using CMSGTechnical.Mediator;
@@ -19,6 +20,7 @@ builder.Services.AddDbContextFactory<ApplicationDbContext>(optionsBuilder =>
 
 
 builder.Services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
+builder.Services.AddScoped<BasketService>();
 builder.Services.AddMediatR(configuration =>
 {
     configuration.Lifetime = ServiceLifetime.Scoped;
@@ -54,3 +56,4 @@ app.MapRazorComponents<App>()
     ;
 
 app.Run();
+

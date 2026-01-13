@@ -10,9 +10,13 @@
 
 
 
-@for (var i = 0; i < MenuItems.Count(); i++) {
-    var item = MenuItems[i];
-    <MenuItemDisplay Item="@item" OnAdd="() => AddItem(i)" />
+@foreach (var categoryGroup in MenuItems.GroupBy(i => i.Category))
+{
+    <h3 class="mt-3">@categoryGroup.Key</h3>
+    @foreach (var item in categoryGroup)
+    {
+        <MenuItemDisplay Item="@item" OnAdd="() => AddItem(item.Id)" />
+    }
 }
 
 
@@ -32,10 +36,10 @@
         MenuItems = (await Mediator.Send(new GetMenuItems())).ToArray();
     }
 
-    private void AddItem(int id)
+    private async Task AddItem(int id)
     {
         var menuItem = MenuItems.First(i=>i.Id==id);
-        Basket.Add(menuItem);
+        await Basket.Add(menuItem);
     }
     
 }

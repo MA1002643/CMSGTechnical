@@ -1,8 +1,5 @@
 ﻿@using CMSGTechnical.Code
 @using CMSGTechnical.Components.Shared
-@using CMSGTechnical.Domain.Models
-@using CMSGTechnical.Mediator.Basket
-@using MediatR
 @inherits LayoutComponentBase
 
 <div class="page">
@@ -32,14 +29,11 @@
 
 @code
 {
-    private BasketService BasketService { get; set; }
-
-    [Inject] private IMediator Mediator { get; set; } = default!;
+    [Inject] private BasketService BasketService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
-        var basket = await Mediator.Send(new GetBasket(1));
-        BasketService = new BasketService(basket);
+        await BasketService.InitializeAsync();
     }
 
 

@@ -1,0 +1,41 @@
+# Build outputs
+[Bb]in/
+[Oo]bj/
+**/[Bb]in/
+**/[Oo]bj/
+
+# NuGet artifacts
+*.nupkg
+*.snupkg
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+
+# IDE state
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Tools and caches
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+*.cache
+*.log
+*.tmp
+
+# Test and coverage
+TestResults/
+coverage*/
+.nuget/packages/
+
+# Node / frontend
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
