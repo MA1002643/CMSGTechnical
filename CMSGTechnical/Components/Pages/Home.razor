@@ -8,16 +8,20 @@
 
 <PageTitle>Home</PageTitle>
 
-
-
-@foreach (var categoryGroup in MenuItems.GroupBy(i => i.Category))
-{
-    <h3 class="mt-3">@categoryGroup.Key</h3>
-    @foreach (var item in categoryGroup)
+<div class="menu-container">
+    @foreach (var categoryGroup in MenuItems.GroupBy(i => i.Category))
     {
-        <MenuItemDisplay Item="@item" OnAdd="() => AddItem(item.Id)" />
+        <div class="category-section">
+            <h3 class="category-title">@categoryGroup.Key</h3>
+            <div class="items-grid">
+                @foreach (var item in categoryGroup)
+                {
+                    <MenuItemDisplay Item="@item" OnAdd="() => AddItem(item.Id)" />
+                }
+            </div>
+        </div>
     }
-}
+</div>
 
 
 
