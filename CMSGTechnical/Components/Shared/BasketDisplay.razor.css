@@ -25,30 +25,46 @@
   padding: 0.75rem 0.5rem;
   border-bottom: 1px solid #e5e7eb;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .basket-line__info {
   flex: 1;
   min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .basket-line__name {
   font-weight: 600;
   word-break: break-word;
+  width: 100%;
+  overflow: hidden;
 }
 
 .basket-line__meta {
   color: #6b7280;
   font-size: 0.9rem;
   word-break: break-word;
+  width: 100%;
+  overflow: hidden;
 }
 
 .basket-line__controls {
   display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.basket-line__buttons {
+  display: flex;
   align-items: center;
   gap: 0.35rem;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  justify-content: space-between;
   width: 100%;
 }
 
@@ -59,11 +75,11 @@
 }
 
 .basket-line__total {
-  min-width: auto;
-  text-align: right;
   font-weight: 600;
   color: #111827;
-  flex-shrink: 0;
+  word-break: break-word;
+  width: 100%;
+  text-align: right;
 }
 
 .basket-totals {

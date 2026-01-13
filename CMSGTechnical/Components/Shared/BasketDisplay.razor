@@ -24,10 +24,12 @@
                     <div class="basket-line__meta">@entry.Item.Category • £@entry.Item.Price.ToString("0.00") each</div>
                 </div>
                 <div class="basket-line__controls">
-                    <button class="btn btn-light btn-round" @onclick="() => Add(entry.Item)" title="Add item">+</button>
-                    <span class="basket-line__qty">@entry.Quantity</span>
-                    <button class="btn btn-light btn-round" @onclick="() => Remove(entry.Item)" title="Remove item">-</button>
-                    <span class="basket-line__total">£@entry.LineTotal.ToString("0.00")</span>
+                    <div class="basket-line__buttons">
+                        <button class="btn btn-light btn-round" @onclick="() => Add(entry.Item)" title="Add item">+</button>
+                        <span class="basket-line__qty">@entry.Quantity</span>
+                        <button class="btn btn-light btn-round" @onclick="() => Remove(entry.Item)" title="Remove item">-</button>
+                    </div>
+                    <div class="basket-line__total">£@entry.LineTotal.ToString("0.00")</div>
                 </div>
             </div>
         }
