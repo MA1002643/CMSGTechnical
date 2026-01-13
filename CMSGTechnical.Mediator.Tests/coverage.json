@@ -1,0 +1,906 @@
+{
+  "CMSGTechnical.Domain.dll": {
+    "/Users/muhammadabdullah/Desktop/GitHub/CMSGTechnical/CMSGTechnical.Domain/Models/Basket.cs": {
+      "CMSGTechnical.Domain.Models.Basket": {
+        "System.Int32 CMSGTechnical.Domain.Models.Basket::get_Id()": {
+          "Lines": {
+            "12": 4
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.ICollection`1<CMSGTechnical.Domain.Models.MenuItem> CMSGTechnical.Domain.Models.Basket::get_MenuItems()": {
+          "Lines": {
+            "13": 6
+          },
+          "Branches": []
+        },
+        "System.Int32 CMSGTechnical.Domain.Models.Basket::get_UserId()": {
+          "Lines": {
+            "15": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/muhammadabdullah/Desktop/GitHub/CMSGTechnical/CMSGTechnical.Domain/Models/MenuItem.cs": {
+      "CMSGTechnical.Domain.Models.MenuItem": {
+        "System.Int32 CMSGTechnical.Domain.Models.MenuItem::get_Id()": {
+          "Lines": {
+            "12": 18
+          },
+          "Branches": []
+        },
+        "System.String CMSGTechnical.Domain.Models.MenuItem::get_Name()": {
+          "Lines": {
+            "14": 24
+          },
+          "Branches": []
+        },
+        "System.String CMSGTechnical.Domain.Models.MenuItem::get_Description()": {
+          "Lines": {
+            "15": 9
+          },
+          "Branches": []
+        },
+        "System.String CMSGTechnical.Domain.Models.MenuItem::get_Category()": {
+          "Lines": {
+            "16": 31
+          },
+          "Branches": []
+        },
+        "System.Decimal CMSGTechnical.Domain.Models.MenuItem::get_Price()": {
+          "Lines": {
+            "17": 21
+          },
+          "Branches": []
+        },
+        "System.Int32 CMSGTechnical.Domain.Models.MenuItem::get_Order()": {
+          "Lines": {
+            "19": 29
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.ICollection`1<CMSGTechnical.Domain.Models.MenuItem> CMSGTechnical.Domain.Models.MenuItem::get_ChildItems()": {
+          "Lines": {
+            "21": 18
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/muhammadabdullah/Desktop/GitHub/CMSGTechnical/CMSGTechnical.Domain/Interfaces/IRepo.cs": {
+      "CMSGTechnical.Domain.Interfaces.IRepo`1": {
+        "System.Linq.IQueryable`1<TEntity> CMSGTechnical.Domain.Interfaces.IRepo`1::GetAll(System.Int32[])": {
+          "Lines": {
+            "17": 0
+          },
+          "Branches": []
+        },
+        "System.Linq.IQueryable`1<TEntity> CMSGTechnical.Domain.Interfaces.IRepo`1::get_Item(System.Int32)": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "System.Linq.IQueryable`1<TEntity> CMSGTechnical.Domain.Interfaces.IRepo`1::get_Item(System.Int32[])": {
+          "Lines": {
+            "19": 0
+          },
+          "Branches": []
+        },
+        "System.Linq.IQueryable`1<TEntity> CMSGTechnical.Domain.Interfaces.IRepo`1::get_Item(System.Collections.Generic.IEnumerable`1<System.Int32>)": {
+          "Lines": {
+            "20": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "CMSGTechnical.Repository.dll": {
+    "/Users/muhammadabdullah/Desktop/GitHub/CMSGTechnical/CMSGTechnical.Repository/ApplicationDbContext.cs": {
+      "CMSGTechnical.Repository.ApplicationDbContext": {
+        "System.Void CMSGTechnical.Repository.ApplicationDbContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "22": 0,
+            "23": 0
+          },
+          "Branches": []
+        },
+        "System.Void CMSGTechnical.Repository.ApplicationDbContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions`1<CMSGTechnical.Repository.ApplicationDbContext>)": {
+          "Lines": {
+            "11": 0,
+            "12": 0,
+            "14": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/muhammadabdullah/Desktop/GitHub/CMSGTechnical/CMSGTechnical.Repository/DBHelpers.cs": {
+      "CMSGTechnical.Repository.DBHelpers": {
+        "System.Void CMSGTechnical.Repository.DBHelpers::FindMissingEntitiesOfType(Microsoft.EntityFrameworkCore.ModelBuilder,System.Reflection.Assembly)": {
+          "Lines": {
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0
+          },
+          "Branches": [
+            {
+              "Line": 17,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 17,
+              "Offset": 13,
+              "EndOffset": 38,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 17,
+              "Offset": 49,
+              "EndOffset": 51,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 17,
+              "Offset": 49,
+              "EndOffset": 74,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 22,
+              "Offset": 174,
+              "EndOffset": 90,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 117,
+              "EndOffset": 121,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 24,
+              "Offset": 117,
+              "EndOffset": 168,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 22,
+              "Offset": 174,
+              "EndOffset": 176,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 18,
+              "Offset": 1,
+              "EndOffset": 3,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 18,
+              "Offset": 9,
+              "EndOffset": 11,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 18,
+              "Offset": 1,
+              "EndOffset": 22,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 18,
+              "Offset": 9,
+              "EndOffset": 22,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "/Users/muhammadabdullah/Desktop/GitHub/CMSGTechnical/CMSGTechnical.Repository/Repo.cs": {
+      "CMSGTechnical.Repository.Repo`1": {
+        "CMSGTechnical.Repository.ApplicationDbContext CMSGTechnical.Repository.Repo`1::get_Context()": {
+          "Lines": {
+            "18": 0
+          },
+          "Branches": []
+        },
+        "System.Linq.IQueryable`1<TEntity> CMSGTechnical.Repository.Repo`1::get_Query()": {
+          "Lines": {
+            "20": 0
+          },
+          "Branches": [
+            {
+              "Line": 20,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 20,
+              "Offset": 7,
+              "EndOffset": 30,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Linq.IQueryable`1<TEntity> CMSGTechnical.Repository.Repo`1::GetAll()": {
+          "Lines": {
+            "127": 0,
+            "128": 0,
+            "129": 0
+          },
+          "Branches": []
+        },
+        "System.Linq.IQueryable`1<TEntity> CMSGTechnical.Repository.Repo`1::GetAll(System.Collections.Generic.IEnumerable`1<System.Int32>)": {
+          "Lines": {
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerator`1<TEntity> CMSGTechnical.Repository.Repo`1::GetEnumerator()": {
+          "Lines": {
+            "156": 0,
+            "157": 0,
+            "158": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.IEnumerator CMSGTechnical.Repository.Repo`1::System.Collections.IEnumerable.GetEnumerator()": {
+          "Lines": {
+            "161": 0,
+            "162": 0,
+            "163": 0
+          },
+          "Branches": []
+        },
+        "System.Type CMSGTechnical.Repository.Repo`1::get_ElementType()": {
+          "Lines": {
+            "165": 0
+          },
+          "Branches": []
+        },
+        "System.Linq.Expressions.Expression CMSGTechnical.Repository.Repo`1::get_Expression()": {
+          "Lines": {
+            "166": 0
+          },
+          "Branches": []
+        },
+        "System.Linq.IQueryProvider CMSGTechnical.Repository.Repo`1::get_Provider()": {
+          "Lines": {
+            "167": 0
+          },
+          "Branches": []
+        },
+        "System.Void CMSGTechnical.Repository.Repo`1::.ctor(CMSGTechnical.Repository.ApplicationDbContext)": {
+          "Lines": {
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Repository.Repo`1/<Add>d__7": {
+        "System.Void CMSGTechnical.Repository.Repo`1/<Add>d__7::MoveNext()": {
+          "Lines": {
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Repository.Repo`1/<Add>d__8": {
+        "System.Void CMSGTechnical.Repository.Repo`1/<Add>d__8::MoveNext()": {
+          "Lines": {
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Repository.Repo`1/<Delete>d__11": {
+        "System.Void CMSGTechnical.Repository.Repo`1/<Delete>d__11::MoveNext()": {
+          "Lines": {
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Repository.Repo`1/<Delete>d__12": {
+        "System.Void CMSGTechnical.Repository.Repo`1/<Delete>d__12::MoveNext()": {
+          "Lines": {
+            "71": 0,
+            "72": 0,
+            "73": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Repository.Repo`1/<Delete>d__13": {
+        "System.Void CMSGTechnical.Repository.Repo`1/<Delete>d__13::MoveNext()": {
+          "Lines": {
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Repository.Repo`1/<Delete>d__14": {
+        "System.Void CMSGTechnical.Repository.Repo`1/<Delete>d__14::MoveNext()": {
+          "Lines": {
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Repository.Repo`1/<Get>d__18": {
+        "System.Void CMSGTechnical.Repository.Repo`1/<Get>d__18::MoveNext()": {
+          "Lines": {
+            "132": 0,
+            "133": 0,
+            "134": 0,
+            "135": 0,
+            "136": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Repository.Repo`1/<Get>d__19": {
+        "System.Void CMSGTechnical.Repository.Repo`1/<Get>d__19::MoveNext()": {
+          "Lines": {
+            "139": 0,
+            "140": 0,
+            "141": 0,
+            "142": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Repository.Repo`1/<Modify>d__15": {
+        "System.Void CMSGTechnical.Repository.Repo`1/<Modify>d__15::MoveNext()": {
+          "Lines": {
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "96": 0,
+            "97": 0
+          },
+          "Branches": [
+            {
+              "Line": 93,
+              "Offset": 58,
+              "EndOffset": 60,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 93,
+              "Offset": 58,
+              "EndOffset": 175,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "CMSGTechnical.Repository.Repo`1/<Modify>d__16": {
+        "System.Void CMSGTechnical.Repository.Repo`1/<Modify>d__16::MoveNext()": {
+          "Lines": {
+            "100": 0,
+            "102": 0,
+            "103": 0,
+            "105": 0,
+            "106": 0,
+            "109": 0,
+            "110": 0,
+            "112": 0,
+            "113": 0,
+            "116": 0,
+            "119": 0,
+            "120": 0
+          },
+          "Branches": [
+            {
+              "Line": 105,
+              "Offset": 205,
+              "EndOffset": 71,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 106,
+              "Offset": 132,
+              "EndOffset": 136,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 106,
+              "Offset": 138,
+              "EndOffset": 142,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 106,
+              "Offset": 132,
+              "EndOffset": 162,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 106,
+              "Offset": 138,
+              "EndOffset": 182,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 105,
+              "Offset": 205,
+              "EndOffset": 210,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "CMSGTechnical.Repository.Repo`1/<Update>d__10": {
+        "System.Void CMSGTechnical.Repository.Repo`1/<Update>d__10::MoveNext()": {
+          "Lines": {
+            "54": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Repository.Repo`1/<Update>d__9": {
+        "System.Void CMSGTechnical.Repository.Repo`1/<Update>d__9::MoveNext()": {
+          "Lines": {
+            "48": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/muhammadabdullah/Desktop/GitHub/CMSGTechnical/CMSGTechnical.Repository/SeedDataHelper.cs": {
+      "CMSGTechnical.Repository.SeedDataHelper": {
+        "Microsoft.EntityFrameworkCore.ModelBuilder CMSGTechnical.Repository.SeedDataHelper::SeedData(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "11": 0,
+            "13": 0,
+            "14": 0
+          },
+          "Branches": []
+        },
+        "System.Void CMSGTechnical.Repository.SeedDataHelper::SeedBasket(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0
+          },
+          "Branches": []
+        },
+        "System.Void CMSGTechnical.Repository.SeedDataHelper::SeedMenu(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "106": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0,
+            "120": 0,
+            "121": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "CMSGTechnical.Mediator.dll": {
+    "/Users/muhammadabdullah/Desktop/GitHub/CMSGTechnical/CMSGTechnical.Mediator/Menu/GetMenuItem.cs": {
+      "CMSGTechnical.Mediator.Menu.GetMenuItem": {
+        "System.Int32 CMSGTechnical.Mediator.Menu.GetMenuItem::get_Id()": {
+          "Lines": {
+            "8": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Mediator.Menu.GetMenuItemHandler": {
+        "CMSGTechnical.Domain.Interfaces.IRepo`1<CMSGTechnical.Domain.Models.MenuItem> CMSGTechnical.Mediator.Menu.GetMenuItemHandler::get_MenuItems()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Void CMSGTechnical.Mediator.Menu.GetMenuItemHandler::.ctor(CMSGTechnical.Domain.Interfaces.IRepo`1<CMSGTechnical.Domain.Models.MenuItem>)": {
+          "Lines": {
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Mediator.Menu.GetMenuItemHandler/<Handle>d__4": {
+        "System.Void CMSGTechnical.Mediator.Menu.GetMenuItemHandler/<Handle>d__4::MoveNext()": {
+          "Lines": {
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/muhammadabdullah/Desktop/GitHub/CMSGTechnical/CMSGTechnical.Mediator/Menu/GetMenuItems.cs": {
+      "CMSGTechnical.Mediator.Menu.GetMenuItems": {
+        "System.Void CMSGTechnical.Mediator.Menu.GetMenuItems::.ctor(CMSGTechnical.Mediator.Menu.GetMenuItems)": {
+          "Lines": {
+            "14": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Mediator.Menu.GetMenuItemsHandler": {
+        "CMSGTechnical.Domain.Interfaces.IRepo`1<CMSGTechnical.Domain.Models.MenuItem> CMSGTechnical.Mediator.Menu.GetMenuItemsHandler::get_MenuItems()": {
+          "Lines": {
+            "19": 0
+          },
+          "Branches": []
+        },
+        "System.Void CMSGTechnical.Mediator.Menu.GetMenuItemsHandler::.ctor(CMSGTechnical.Domain.Interfaces.IRepo`1<CMSGTechnical.Domain.Models.MenuItem>)": {
+          "Lines": {
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Mediator.Menu.GetMenuItemsHandler/<Handle>d__4": {
+        "System.Void CMSGTechnical.Mediator.Menu.GetMenuItemsHandler/<Handle>d__4::MoveNext()": {
+          "Lines": {
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/muhammadabdullah/Desktop/GitHub/CMSGTechnical/CMSGTechnical.Mediator/Dtos/Basket.cs": {
+      "CMSGTechnical.Mediator.Dtos.BasketDto": {
+        "System.Int32 CMSGTechnical.Mediator.Dtos.BasketDto::get_Id()": {
+          "Lines": {
+            "8": 3
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.ICollection`1<CMSGTechnical.Mediator.Dtos.MenuItemDto> CMSGTechnical.Mediator.Dtos.BasketDto::get_MenuItems()": {
+          "Lines": {
+            "9": 6
+          },
+          "Branches": []
+        },
+        "System.Int32 CMSGTechnical.Mediator.Dtos.BasketDto::get_UserId()": {
+          "Lines": {
+            "11": 3
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Mediator.Dtos.BasketExtensions": {
+        "System.Collections.Generic.IEnumerable`1<CMSGTechnical.Mediator.Dtos.BasketDto> CMSGTechnical.Mediator.Dtos.BasketExtensions::ToDto(System.Collections.Generic.IEnumerable`1<CMSGTechnical.Domain.Models.Basket>)": {
+          "Lines": {
+            "21": 0
+          },
+          "Branches": []
+        },
+        "CMSGTechnical.Mediator.Dtos.BasketDto CMSGTechnical.Mediator.Dtos.BasketExtensions::ToDto(CMSGTechnical.Domain.Models.Basket)": {
+          "Lines": {
+            "24": 2,
+            "25": 2,
+            "26": 2,
+            "27": 2,
+            "28": 2,
+            "29": 2,
+            "30": 2,
+            "31": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/muhammadabdullah/Desktop/GitHub/CMSGTechnical/CMSGTechnical.Mediator/Dtos/MenuItemDto.cs": {
+      "CMSGTechnical.Mediator.Dtos.MenuItemDto": {
+        "System.Int32 CMSGTechnical.Mediator.Dtos.MenuItemDto::get_Id()": {
+          "Lines": {
+            "14": 7
+          },
+          "Branches": []
+        },
+        "System.String CMSGTechnical.Mediator.Dtos.MenuItemDto::get_Name()": {
+          "Lines": {
+            "16": 10
+          },
+          "Branches": []
+        },
+        "System.String CMSGTechnical.Mediator.Dtos.MenuItemDto::get_Description()": {
+          "Lines": {
+            "17": 9
+          },
+          "Branches": []
+        },
+        "System.String CMSGTechnical.Mediator.Dtos.MenuItemDto::get_Category()": {
+          "Lines": {
+            "18": 15
+          },
+          "Branches": []
+        },
+        "System.Decimal CMSGTechnical.Mediator.Dtos.MenuItemDto::get_Price()": {
+          "Lines": {
+            "19": 7
+          },
+          "Branches": []
+        },
+        "System.Int32 CMSGTechnical.Mediator.Dtos.MenuItemDto::get_Order()": {
+          "Lines": {
+            "21": 14
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.ICollection`1<CMSGTechnical.Mediator.Dtos.MenuItemDto> CMSGTechnical.Mediator.Dtos.MenuItemDto::get_ChildItems()": {
+          "Lines": {
+            "23": 14
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Mediator.Dtos.MenuItemExtensions": {
+        "System.Collections.Generic.IEnumerable`1<CMSGTechnical.Mediator.Dtos.MenuItemDto> CMSGTechnical.Mediator.Dtos.MenuItemExtensions::ToDto(System.Collections.Generic.IEnumerable`1<CMSGTechnical.Domain.Models.MenuItem>)": {
+          "Lines": {
+            "32": 15
+          },
+          "Branches": []
+        },
+        "CMSGTechnical.Mediator.Dtos.MenuItemDto CMSGTechnical.Mediator.Dtos.MenuItemExtensions::ToDto(CMSGTechnical.Domain.Models.MenuItem)": {
+          "Lines": {
+            "35": 7,
+            "37": 7,
+            "38": 7,
+            "39": 7,
+            "40": 7,
+            "41": 7,
+            "42": 7,
+            "43": 7,
+            "44": 7,
+            "45": 7,
+            "46": 7,
+            "47": 7,
+            "48": 7
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/Users/muhammadabdullah/Desktop/GitHub/CMSGTechnical/CMSGTechnical.Mediator/Basket/GetBasket.cs": {
+      "CMSGTechnical.Mediator.Basket.GetBasket": {
+        "System.Int32 CMSGTechnical.Mediator.Basket.GetBasket::get_Id()": {
+          "Lines": {
+            "12": 2
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Mediator.Basket.GetBasketHandler": {
+        "CMSGTechnical.Domain.Interfaces.IRepo`1<CMSGTechnical.Domain.Models.Basket> CMSGTechnical.Mediator.Basket.GetBasketHandler::get_Baskets()": {
+          "Lines": {
+            "17": 1
+          },
+          "Branches": []
+        },
+        "System.Void CMSGTechnical.Mediator.Basket.GetBasketHandler::.ctor(CMSGTechnical.Domain.Interfaces.IRepo`1<CMSGTechnical.Domain.Models.Basket>)": {
+          "Lines": {
+            "19": 1,
+            "20": 1,
+            "21": 1,
+            "22": 1
+          },
+          "Branches": []
+        }
+      },
+      "CMSGTechnical.Mediator.Basket.GetBasketHandler/<Handle>d__4": {
+        "System.Void CMSGTechnical.Mediator.Basket.GetBasketHandler/<Handle>d__4::MoveNext()": {
+          "Lines": {
+            "25": 1,
+            "26": 1,
+            "27": 1,
+            "28": 1
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}
