@@ -2,13 +2,16 @@
 @using CMSGTechnical.Components.Shared
 @using CMSGTechnical.Domain.Models
 @using CMSGTechnical.Mediator.Basket
+@using CMSGTechnical.Mediator.Dtos
 @using MediatR
 @inherits LayoutComponentBase
+@using System.Text.Json
+@inject IJSRuntime JS
 
 <div class="page">
     <CascadingValue TValue="BasketService" Value="@BasketService">
         <div class="sidebar">
-            <NavMenu/>
+            <NavMenu />
         </div>
 
         <main>
@@ -32,15 +35,45 @@
 
 @code
 {
-    private BasketService BasketService { get; set; }
+    private BasketService BasketService { get; set; } = new BasketService(new BasketDto());
 
     [Inject] private IMediator Mediator { get; set; } = default!;
+
+    private const string BasketKey = "currentBasket";
 
     protected override async Task OnInitializedAsync()
     {
         var basket = await Mediator.Send(new GetBasket(1));
-        BasketService = new BasketService(basket);
+        BasketService.Basket.MenuItems.Clear(); // ensure clean in-memory basket.
+        foreach (var item in basket.MenuItems)
+            BasketService.Basket.MenuItems.Add(item);
+
+        BasketService.OnChange += BasketChanged; // listen for changes.
     }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return; // ensure this only runs on the initial render.
 
+        var json = await JS.InvokeAsync<string?>("storage.get", BasketKey); // load a previously saved basket from localStorage.
+        if (string.IsNullOrWhiteSpace(json)) return;
+
+        var stored = JsonSerializer.Deserialize<BasketDto>(json); //deserialize the stored basket data.
+
+        if (stored?.MenuItems is null) return;
+        BasketService.Basket.MenuItems.Clear();
+
+        foreach (var item in stored.MenuItems) // replace current basket with in memory basket.
+        {
+            BasketService.Basket.MenuItems.Add(item);
+        }
+
+        StateHasChanged(); // trigger re-render.
+    }
+
+    private async void BasketChanged(object? sender, BasketChangedEventArgs e)
+    {
+        var json = JsonSerializer.Serialize(e.Basket); // serialize data to be stored in local storage
+        await JS.InvokeVoidAsync("storage.set", BasketKey, json);
+    }
 }

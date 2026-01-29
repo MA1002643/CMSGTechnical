@@ -1,8 +1,8 @@
 ﻿@using CMSGTechnical.Domain.Models
 @using CMSGTechnical.Mediator.Dtos
 
-<div class="mt-2 mb-2 d-flex justify-content-between">
-    <div> 
+<div class="mt-2 mb-2 d-flex justify-content-between menu-item">
+    <div>
         <div>
             <strong>@Item.Name (<strong>£@Item.Price</strong>)</strong>
         </div>
@@ -16,8 +16,8 @@
     </div>
     <div>
         @if (OnAdd.HasDelegate)
-        {
-            <button class="btn btn-primary btn-round" @onclick="Add">+</button>
+        { // added padding to centre the text
+          <button class="btn btn-primary btn-round" style="padding: 0 10px" @onclick="Add">+</button>
         }
         @if (OnRemove.HasDelegate)
         {
@@ -30,7 +30,7 @@
 @code {
 
     [Parameter] public MenuItemDto Item { get; set; } = new();
-    
+
 
     [Parameter]
     public EventCallback<MenuItemDto> OnAdd { get; set; }

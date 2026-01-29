@@ -19,6 +19,8 @@ namespace CMSGTechnical.Mediator.Dtos
 
         public int Order { get; set; } = 0;
 
+        public MenuCategory Category { get; set; }
+
         public ICollection<MenuItemDto> ChildItems { get; set; } = new List<MenuItemDto>();
 
     }
@@ -41,6 +43,7 @@ namespace CMSGTechnical.Mediator.Dtos
                 Name = menuItem.Name,
                 Id = menuItem.Id,
                 Order = menuItem.Order,
+                Category = menuItem.Category // added Category.
 
             };
         }

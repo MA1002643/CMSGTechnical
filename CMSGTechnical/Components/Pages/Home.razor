@@ -5,17 +5,22 @@
 @using MediatR
 @using CMSGTechnical.Components.Shared
 @using CMSGTechnical.Mediator.Dtos
+@using System.Text.Json
 
 <PageTitle>Home</PageTitle>
 
+@foreach (var group in MenuItems
+.GroupBy(m => m.Category) // group menu items by category
+.OrderBy(g => (int)g.Key)) // order categories for display
+{
 
+    <h5 class="mt-3"></h5>
 
-@for (var i = 0; i < MenuItems.Count(); i++) {
-    var item = MenuItems[i];
-    <MenuItemDisplay Item="@item" OnAdd="() => AddItem(i)" />
+    @foreach (var item in group.OrderBy(m => m.Price)) // display items sorted by price.
+    {
+        <MenuItemDisplay @key="item.Id" Item="@item" OnAdd="() => AddItem(item.Id)" />
+    }
 }
-
-
 
 @code
 {
@@ -34,8 +39,9 @@
 
     private void AddItem(int id)
     {
-        var menuItem = MenuItems.First(i=>i.Id==id);
+        var menuItem = MenuItems.First(i => i.Id == id);
         Basket.Add(menuItem);
+
     }
-    
+
 }

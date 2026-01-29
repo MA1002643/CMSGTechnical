@@ -17,6 +17,8 @@ namespace CMSGTechnical.Domain.Models
 
         public int Order { get; set; } = 0;
 
+        public MenuCategory Category { get; set; } // added to allow menu items to be categorised (Starter / Main / Dessert)
+
         public ICollection<MenuItem> ChildItems { get; set; } = new List<MenuItem>();
     }
 }

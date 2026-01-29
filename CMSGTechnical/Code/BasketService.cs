@@ -6,37 +6,21 @@ using Microsoft.AspNetCore.Components;
 
 namespace CMSGTechnical.Code
 {
-
-    public class BasketChangedEventArgs : EventArgs
-    {
-        public BasketDto Basket { get; set; }
-    }
-
-
+    public class BasketChangedEventArgs : EventArgs { public BasketDto Basket { get; set; } }
     public class BasketService
     {
-
         public event EventHandler<BasketChangedEventArgs> OnChange;
-
         public BasketDto Basket { get; }
-
-        public BasketService(BasketDto basket)
-        {
-            Basket = basket;
-        }
-
-
-        public async Task Add(MenuItemDto item)
+        public BasketService(BasketDto basket) { Basket = basket; }
+        public void Add(MenuItemDto item) // changed to void as async is not needed and awaits nothing.
         {
             Basket.MenuItems.Add(item);
-            OnChange(this, new BasketChangedEventArgs(){Basket = Basket});
+            OnChange(this, new BasketChangedEventArgs() { Basket = Basket });
         }
-
-        public async Task Remove(MenuItemDto item)
+        public void Remove(MenuItemDto item)
         {
             Basket.MenuItems.Remove(item);
             OnChange(this, new BasketChangedEventArgs() { Basket = Basket });
         }
-
     }
 }
